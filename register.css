@@ -138,6 +138,15 @@ body {
   z-index: 1;
 }
 
+.form-text {
+  min-height: 1rem;
+}
+
+#userList .list-group-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

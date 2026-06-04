@@ -30,9 +30,17 @@
               </div>
 
               <div class="mb-3 form-floating">
+                <input type="text" class="form-control form-control-dark" id="username" placeholder="Username" maxlength="30" required />
+                <label for="username"><i class="fa-solid fa-user-tag me-2"></i>Username</label>
+                <div class="invalid-feedback">Username is required and must be 3-30 characters.</div>
+                <div id="usernameStatus" class="form-text text-muted d-none">Username availability check will appear here.</div>
+              </div>
+
+              <div class="mb-3 form-floating">
                 <input type="email" class="form-control form-control-dark" id="registerEmail" placeholder="Email" maxlength="80" required />
                 <label for="registerEmail"><i class="fa-solid fa-envelope me-2"></i>Email</label>
                 <div class="invalid-feedback">Please enter a valid email address.</div>
+                <div id="emailStatus" class="form-text text-muted d-none">Email availability check will appear here.</div>
               </div>
 
               <div class="mb-3 form-floating">
@@ -75,6 +83,18 @@
 
               <div id="registerAlert" class="alert d-none" role="alert"></div>
             </form>
+
+            <div class="mt-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="h6 mb-0">Sample user lookup</h3>
+                <button id="loadUsersBtn" type="button" class="btn btn-sm btn-outline-light">
+                  <span id="loadUsersSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                  Load users
+                </button>
+              </div>
+              <div id="userDataAlert" class="alert d-none" role="alert"></div>
+              <div id="userList" class="list-group"></div>
+            </div>
           </div>
         </div>
       </div>
