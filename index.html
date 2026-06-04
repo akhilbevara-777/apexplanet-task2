@@ -1,129 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexPlanet Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ApexPlanet | Professional Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-8n8mljMxnsdNRcJ/NeDk9iOM0NJL8x9wV8rcc+K9P9r+koaTML5+pUoRhW11BxqC" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">ApexPlanet</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+<body class="bg-dark text-light">
+  <div id="scrollProgress" aria-hidden="true"><div id="progressBar"></div></div>
+
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#home">
+          <span class="brand-dot me-2"></span>
+          ApexPlanet
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
         </div>
+      </div>
     </nav>
+  </header>
 
-    <header id="hero" class="hero-section text-center text-white d-flex align-items-center">
-        <div class="container">
-            <h1 class="display-4">Welcome to My Portfolio</h1>
-            <p class="lead">Showcasing my work and skills</p>
-            <a href="#projects" class="btn btn-primary btn-lg">View Projects</a>
-        </div>
-    </header>
-
-    <section id="about" class="about-section py-5">
-        <div class="container">
-            <h2 class="text-center">About Me</h2>
-            <p class="text-center">I am a passionate developer with experience in building modern web applications.</p>
-        </div>
-    </section>
-
-    <section id="skills" class="skills-section py-5 bg-dark text-white">
-        <div class="container">
-            <h2 class="text-center">My Skills</h2>
-            <ul class="list-unstyled text-center">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>Bootstrap 5</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="projects" class="projects-section py-5">
-        <div class="container">
-            <h2 class="text-center">Projects</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 1</h5>
-                            <p class="card-text">Description of project 1.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/project2.jpg" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 2</h5>
-                            <p class="card-text">Description of project 2.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/project3.jpg" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 3</h5>
-                            <p class="card-text">Description of project 3.</p>
-                        </div>
-                    </div>
-                </div>
+  <main>
+    <section id="home" class="hero-section py-5 d-flex align-items-center">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6">
+            <p class="eyebrow">Software Engineer Portfolio</p>
+            <h1 class="display-5 fw-bold reveal">Hi, I'm Jane Doe</h1>
+            <p class="lead text-muted mb-4 reveal delay-1">I build modern, responsive web applications with clean UI, performance focus, and recruiter-ready polish.</p>
+            <div class="d-flex flex-wrap gap-3 reveal delay-2">
+              <a href="#projects" class="btn btn-primary btn-lg animated-btn">View Projects</a>
+              <a href="#contact" class="btn btn-outline-light btn-lg animated-btn">Contact Me</a>
             </div>
+            <div class="mt-4 text-muted small reveal delay-3">Open to internships, remote roles, and freelance collaborations.</div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="hero-visual reveal delay-2 float-item">
+              <img src="images/hero-mockup.png" alt="Portfolio mockup" class="img-fluid rounded-4 shadow-xl" />
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="contact" class="contact-section py-5 bg-dark text-white">
-        <div class="container">
-            <h2 class="text-center">Contact Me</h2>
-            <form>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
+    <section id="about" class="py-5 border-top border-secondary">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-md-5 text-center text-md-start reveal">
+            <div class="glass-panel p-4 rounded-4 shadow-sm">
+              <img src="images/profile.jpg" alt="Profile" class="rounded-circle img-fluid border border-white border-2 shadow-sm" width="210" />
+            </div>
+          </div>
+          <div class="col-md-7 reveal delay-1">
+            <h2 class="h3">About Me</h2>
+            <p class="text-muted">I’m a frontend developer focused on building elegant, user-friendly digital experiences using HTML5, CSS3, JavaScript, and Bootstrap 5. I enjoy transforming concepts into polished products that look great and feel intuitive.</p>
+            <div class="row g-3 mt-4">
+              <div class="col-sm-6">
+                <div class="info-card glass-panel p-3 rounded-4">
+                  <h6 class="mb-2">Location</h6>
+                  <p class="mb-0 text-muted">Remote / Toronto</p>
                 </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-card glass-panel p-3 rounded-4">
+                  <h6 class="mb-2">Experience</h6>
+                  <p class="mb-0 text-muted">2+ years in frontend development</p>
                 </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" rows="3" required></textarea>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-card glass-panel p-3 rounded-4">
+                  <h6 class="mb-2">Email</h6>
+                  <p class="mb-0 text-muted">jane.doe@example.com</p>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+              <div class="col-sm-6">
+                <div class="info-card glass-panel p-3 rounded-4">
+                  <h6 class="mb-2">Availability</h6>
+                  <p class="mb-0 text-muted">Open for new opportunities</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-5">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 reveal">
+          <div>
+            <h2 class="h3 mb-1">Skills</h2>
+            <p class="text-muted mb-0">Technical strengths I use to deliver polished web apps.</p>
+          </div>
+          <span class="badge bg-primary bg-opacity-10 text-primary">Bootstrap Grid · Cards · Modals</span>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="skill-card glass-panel p-4 rounded-4 reveal delay-1">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-semibold">HTML5 & CSS3</span>
+                <span class="text-muted small">95%</span>
+              </div>
+              <div class="progress skill-progress" data-percent="95"><div class="progress-bar bg-primary" role="progressbar" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="skill-card glass-panel p-4 rounded-4 reveal delay-1">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-semibold">JavaScript (ES6+)</span>
+                <span class="text-muted small">88%</span>
+              </div>
+              <div class="progress skill-progress" data-percent="88"><div class="progress-bar bg-primary" role="progressbar" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="skill-card glass-panel p-4 rounded-4 reveal delay-2">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-semibold">Bootstrap 5</span>
+                <span class="text-muted small">92%</span>
+              </div>
+              <div class="progress skill-progress" data-percent="92"><div class="progress-bar bg-primary" role="progressbar" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="skill-card glass-panel p-4 rounded-4 reveal delay-2">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-semibold">React & Frameworks</span>
+                <span class="text-muted small">75%</span>
+              </div>
+              <div class="progress skill-progress" data-percent="75"><div class="progress-bar bg-primary" role="progressbar" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-5 border-top border-secondary">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 reveal">
+          <div>
+            <h2 class="h3 mb-1">Projects</h2>
+            <p class="text-muted mb-0">Featured work built with modern frontend patterns.</p>
+          </div>
+          <div class="text-muted small">Click cards for live previews and details</div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <article class="card project-card h-100 glass-card border-0 shadow-sm reveal">
+              <img src="images/project1.jpg" class="card-img-top rounded-top" alt="Project 1 screenshot" />
+              <div class="card-body">
+                <h5 class="card-title">Portfolio Website</h5>
+                <p class="card-text text-muted small">Responsive portfolio with animated UI, Bootstrap layout, and polished styling.</p>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                  <button class="btn btn-sm btn-primary animated-btn" data-bs-toggle="modal" data-bs-target="#project1Modal">View</button>
+                  <span class="text-muted small">2026</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="card project-card h-100 glass-card border-0 shadow-sm reveal delay-1">
+              <img src="images/project2.jpg" class="card-img-top rounded-top" alt="Project 2 screenshot" />
+              <div class="card-body">
+                <h5 class="card-title">Dashboard App</h5>
+                <p class="card-text text-muted small">Admin dashboard prototype featuring charts, data cards, and dark mode styling.</p>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                  <button class="btn btn-sm btn-primary animated-btn" data-bs-toggle="modal" data-bs-target="#project2Modal">View</button>
+                  <span class="text-muted small">2025</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="card project-card h-100 glass-card border-0 shadow-sm reveal delay-2">
+              <img src="images/project3.jpg" class="card-img-top rounded-top" alt="Project 3 screenshot" />
+              <div class="card-body">
+                <h5 class="card-title">E-commerce UI</h5>
+                <p class="card-text text-muted small">Product-grid and checkout design with modern mobile-first layout.</p>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                  <button class="btn btn-sm btn-primary animated-btn" data-bs-toggle="modal" data-bs-target="#project3Modal">View</button>
+                  <span class="text-muted small">2024</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content bg-dark text-light border-0 rounded-4 shadow-lg">
+            <div class="modal-header border-0">
+              <h5 class="modal-title" id="project1Label">Portfolio Website</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div id="carouselProject1" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner rounded-4 overflow-hidden">
+                  <div class="carousel-item active">
+                    <img src="images/project1.jpg" class="d-block w-100" alt="Portfolio screenshot" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/project1-2.jpg" class="d-block w-100" alt="Portfolio screenshot" />
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProject1" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProject1" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <a href="#" class="btn btn-primary">Open Live</a>
+              <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content bg-dark text-light border-0 rounded-4 shadow-lg">
+            <div class="modal-header border-0">
+              <h5 class="modal-title" id="project2Label">Dashboard App</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div id="carouselProject2" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner rounded-4 overflow-hidden">
+                  <div class="carousel-item active">
+                    <img src="images/project2.jpg" class="d-block w-100" alt="Dashboard screenshot" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/project2-2.jpg" class="d-block w-100" alt="Dashboard screenshot" />
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProject2" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProject2" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <a href="#" class="btn btn-primary">View Repo</a>
+              <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content bg-dark text-light border-0 rounded-4 shadow-lg">
+            <div class="modal-header border-0">
+              <h5 class="modal-title" id="project3Label">E-commerce UI</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div id="carouselProject3" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner rounded-4 overflow-hidden">
+                  <div class="carousel-item active">
+                    <img src="images/project3.jpg" class="d-block w-100" alt="E-commerce screenshot" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/project3-2.jpg" class="d-block w-100" alt="E-commerce screenshot" />
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProject3" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProject3" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <a href="#" class="btn btn-primary">Live Demo</a>
+              <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-5 border-top border-secondary">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6 reveal">
+            <h2 class="h3">Contact</h2>
+            <p class="text-muted">Send a message and I’ll respond as soon as possible.</p>
+            <div id="formAlert" class="alert d-none" role="alert"></div>
+            <form id="contactForm" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">Full name</label>
+                <input type="text" class="form-control form-control-dark" id="name" required />
+                <div class="invalid-feedback">Please provide your name.</div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control form-control-dark" id="email" required />
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control form-control-dark" id="subject" required />
+                <div class="invalid-feedback">Subject is required.</div>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control form-control-dark" id="message" rows="5" required></textarea>
+                <div class="invalid-feedback">Please leave a message.</div>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="submit" class="btn btn-primary animated-btn">Send Message</button>
+                <button type="reset" class="btn btn-outline-light">Reset</button>
+              </div>
             </form>
+          </div>
+          <div class="col-lg-6 reveal delay-1">
+            <div class="glass-panel p-4 rounded-4 shadow-sm">
+              <h3 class="h5">Quick Info</h3>
+              <ul class="list-unstyled text-muted mt-3">
+                <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>City, Country</li>
+                <li class="mb-2"><i class="bi bi-envelope me-2"></i>jane.doe@example.com</li>
+                <li class="mb-2"><i class="bi bi-phone me-2"></i>+1 (555) 123-4567</li>
+                <li class="mb-2"><i class="bi bi-clock me-2"></i>Mon — Fri · 9am — 6pm</li>
+              </ul>
+              <div class="mt-4">
+                <h4 class="h6 mb-3">Availability</h4>
+                <div class="progress" style="height:10px;"><div class="progress-bar bg-primary" role="progressbar" style="width:75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div></div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
+  </main>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2023 ApexPlanet. All rights reserved.</p>
-    </footer>
+  <footer class="py-4 border-top border-secondary mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <p class="mb-2 mb-md-0 text-muted small">© 2026 Jane Doe · Built with Bootstrap 5</p>
+      <div class="d-flex gap-3">
+        <a href="#" class="text-muted"><i class="bi bi-github fs-5"></i></a>
+        <a href="#" class="text-muted"><i class="bi bi-linkedin fs-5"></i></a>
+        <a href="#" class="text-muted"><i class="bi bi-twitter fs-5"></i></a>
+      </div>
+    </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoK18m1NQ5+31N6c3q3up0K8Y5QnN3G5p+E5oz9BS+ZgTnh" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
 </html>
