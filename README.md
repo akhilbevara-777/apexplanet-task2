@@ -23,8 +23,15 @@ The ApexPlanet Portfolio is a professional and interactive web portfolio designe
 ```
 apexplanet-portfolio
 ├── index.html
-├── style.css
-├── script.js
+├── login.html
+├── register.html
+├── css
+│   └── style.css
+├── js
+│   ├── components.js
+│   ├── main.js
+│   ├── login.js
+│   └── register.js
 ├── images
 └── README.md
 ```
