@@ -1,3 +1,17 @@
+/*
+  ============================================
+  ApexPlanet Portfolio - Enhanced Stylesheet
+  ============================================
+  Professional dark-themed portfolio with glassmorphism,
+  accessibility enhancements, and responsive design.
+  
+  Version: 2.0
+  Last Updated: 2026-06-04
+*/
+
+/* ====================
+   1. CSS VARIABLES
+   ==================== */
 :root {
   --bg: #090b10;
   --surface: rgba(255, 255, 255, 0.06);
@@ -10,43 +24,103 @@
   --secondary: #54618f;
   --border: rgba(255, 255, 255, 0.08);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  --success: #4ade80;
+  --danger: #f87171;
+  --warning: #fbbf24;
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.25s ease;
+  --transition-slow: 0.45s ease;
 }
 
+/* ====================
+   2. GLOBAL STYLES
+   ==================== */
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 82px;
+  lang: en;
 }
 
 body {
   margin: 0;
-  min-height: 100%;
+  min-height: 100vh;
   color: var(--text);
   background: radial-gradient(circle at 10% 15%, rgba(47, 124, 255, 0.14), transparent 16%),
     radial-gradient(circle at 85% 90%, rgba(28, 95, 218, 0.08), transparent 18%),
     var(--bg);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
 }
 
 img {
   max-width: 100%;
   display: block;
+  height: auto;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
+  letter-spacing: inherit;
 }
 
+/* ====================
+   3. SKIP NAVIGATION
+   ==================== */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* ====================
+   4. FOCUS STYLES
+   ==================== */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ====================
+   5. LAYOUT
+   ==================== */
 .page-shell {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 .section {
@@ -63,9 +137,11 @@ textarea {
 }
 
 .hero-section {
-  min-height: calc(100vh - 82px);
+  min-height: 100vh;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
 }
 
 .hero-section::before,
@@ -78,6 +154,9 @@ textarea {
     radial-gradient(circle at bottom right, rgba(47, 124, 255, 0.04), transparent 25%);
 }
 
+/* ====================
+   6. TYPOGRAPHY
+   ==================== */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -86,29 +165,55 @@ textarea {
   text-transform: uppercase;
   letter-spacing: 0.24em;
   font-size: 0.76rem;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hero-section h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+/* ====================
+   7. GLASSMORPHISM
+   ==================== */
 .glass-panel,
 .card-surface,
 .form-shell {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .card-surface {
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  transition: all var(--transition-smooth);
 }
 
 .card-surface:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.38);
-  border-color: rgba(47, 124, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  border-color: rgba(47, 124, 255, 0.3);
 }
 
+/* ====================
+   8. HERO SECTION
+   ==================== */
 .hero-visual {
   max-width: 520px;
   margin: 0 auto;
@@ -116,100 +221,251 @@ textarea {
 }
 
 .hero-visual img {
-  border-radius: 1.5rem;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.scroll-indicator {
+/* ====================
+   9. SCROLL INDICATOR
+   ==================== */
+#scrollProgress {
   position: fixed;
   inset: 0 0 auto 0;
-  height: 5px;
-  z-index: 1100;
+  height: 4px;
+  z-index: 1050;
   background: rgba(255, 255, 255, 0.05);
 }
 
-.scroll-indicator > div {
+#progressBar {
   height: 100%;
   width: 0;
   background: linear-gradient(90deg, var(--primary), #75a7ff);
-  transition: width 0.14s ease;
+  transition: width 0.1s ease;
 }
 
+/* ====================
+   10. BUTTONS
+   ==================== */
 .animated-btn {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: all var(--transition-smooth);
+  min-height: 44px;
+  min-width: 44px;
 }
 
-.animated-btn::after {
+.animated-btn::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.45s ease;
-}
-
-.brand-dot {
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 0 8px rgba(47, 124, 255, 0.12);
-}
-
-.auth-panel {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.shadow-xl {
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35) !important;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
 }
 
 .animated-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(47, 124, 255, 0.2);
+  box-shadow: 0 12px 30px rgba(47, 124, 255, 0.3);
 }
 
-.animated-btn:hover::after {
-  transform: translateX(0);
+.animated-btn:hover::before {
+  transform: scaleX(1);
 }
 
+.animated-btn:active {
+  transform: translateY(0);
+}
+
+.animated-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ====================
+   11. NAVBAR
+   ==================== */
+.navbar {
+  background: rgba(10, 14, 21, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 0.75rem 0;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: var(--text) !important;
+  transition: color var(--transition-fast);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #96b7ff !important;
+}
+
+.navbar-nav .nav-link:focus-visible {
+  outline-offset: 4px;
+}
+
+.brand-dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 6px rgba(47, 124, 255, 0.12);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 6px rgba(47, 124, 255, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(47, 124, 255, 0.06);
+  }
+}
+
+/* ====================
+   12. FORMS
+   ==================== */
 .form-control-dark {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  min-height: 44px;
+  transition: all var(--transition-fast);
+  padding: 0.75rem 1rem;
+}
+
+.form-control-dark::placeholder {
+  color: rgba(232, 238, 248, 0.5);
 }
 
 .form-control-dark:focus {
-  outline: none;
+  background: rgba(255, 255, 255, 0.06);
   border-color: rgba(47, 124, 255, 0.65);
   box-shadow: 0 0 0 0.25rem rgba(47, 124, 255, 0.16);
+  color: var(--text);
 }
 
+.form-control-dark.is-valid {
+  border-color: var(--success);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2374c0fc' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+.form-control-dark.is-invalid {
+  border-color: var(--danger);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='12 12 24 24'%3e%3ccircle cx='24' cy='24' r='11' fill='none' stroke='%23f87171' stroke-width='2'/%3e%3cpath fill='%23f87171' d='M24 16v8m0 4v.01'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.invalid-feedback,
+.valid-feedback {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.invalid-feedback {
+  color: var(--danger);
+}
+
+.valid-feedback {
+  color: var(--success);
+}
+
+.form-text {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-check-input {
+  min-height: 20px;
+  min-width: 20px;
+  margin-top: 0.125rem;
+  cursor: pointer;
+}
+
+.form-check-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ====================
+   13. PASSWORD TOGGLE
+   ==================== */
 .password-toggle {
   position: absolute;
   top: 50%;
   right: 1rem;
   transform: translateY(-50%);
   color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.password-toggle:hover {
+.password-toggle:hover,
+.password-toggle:focus-visible {
   color: var(--primary);
 }
 
+/* ====================
+   14. AUTH PANEL
+   ==================== */
+.auth-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+/* ====================
+   15. ANIMATIONS
+   ==================== */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -218,36 +474,15 @@ textarea {
 }
 
 .reveal.delay-1 {
-  transition-delay: 0.12s;
+  transition-delay: 0.1s;
 }
 
 .reveal.delay-2 {
-  transition-delay: 0.24s;
+  transition-delay: 0.2s;
 }
 
 .reveal.delay-3 {
-  transition-delay: 0.36s;
-}
-
-.navbar {
-  background: rgba(10, 14, 21, 0.92);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-}
-
-.navbar-brand,
-.navbar-nav .nav-link {
-  color: var(--text) !important;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: #96b7ff !important;
-}
-
-.hero-section h1 {
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.02;
+  transition-delay: 0.3s;
 }
 
 @keyframes floatY {
@@ -256,33 +491,312 @@ textarea {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ====================
+   16. LOADING INDICATOR
+   ==================== */
+.spinner-border {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: text-bottom;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+.spinner-border-sm {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-width: 0.2em;
+}
+
+.loading-state {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ====================
+   17. ALERTS & FEEDBACK
+   ==================== */
+.alert {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid;
+  animation: slideDown 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background-color: rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #86efac;
+}
+
+.alert-danger {
+  background-color: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.3);
+  color: #fca5a5;
+}
+
+.alert-warning {
+  background-color: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
+  color: #fcd34d;
+}
+
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow);
+  z-index: 2000;
+  animation: slideDown 0.3s ease;
+  min-width: 300px;
+}
+
+/* ====================
+   18. PROGRESS BAR
+   ==================== */
+.progress {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--primary), #75a7ff);
+  transition: width 0.3s ease;
+}
+
+.skill-progress {
+  height: 10px;
+}
+
+/* ====================
+   19. MODALS
+   ==================== */
+.modal-content {
+  background: rgba(20, 25, 40, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-close-white {
+  filter: brightness(0.8);
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+}
+
+.btn-close-white:hover {
+  filter: brightness(1.2);
+  opacity: 1;
+}
+
+/* ====================
+   20. FOOTER
+   ==================== */
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 14, 21, 0.5);
+  margin-top: auto;
+}
+
+footer a {
+  color: var(--text);
+  transition: color var(--transition-fast);
+}
+
+footer a:hover {
+  color: var(--primary);
+}
+
+/* ====================
+   21. RESPONSIVE DESIGN
+   ==================== */
+
+/* Tablet */
 @media (min-width: 768px) {
   .section {
     padding: 5rem 0;
   }
-}
 
-@media (max-width: 991.98px) {
-  .hero-section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+  .form-control-dark {
+    min-height: 44px;
   }
 }
 
-@media (max-width: 575.98px) {
-  .section {
-    padding: 2.5rem 0;
+/* Mobile */
+@media (max-width: 767.98px) {
+  :root {
+    font-size: 15px;
   }
 
   .hero-section {
     min-height: auto;
+    padding: 2rem 0;
+  }
+
+  .section {
+    padding: 2.5rem 0;
   }
 
   .password-toggle {
     right: 0.75rem;
+  }
+
+  .toast {
+    right: 0.5rem;
+    left: 0.5rem;
+    min-width: auto;
+    bottom: 1rem;
+  }
+
+  .nav-link {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .form-control-dark {
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+
+  button {
+    min-height: 44px;
+  }
+
+  .col-xl-4,
+  .col-lg-5,
+  .col-md-7 {
+    max-width: 100%;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .glass-panel {
+    padding: 1.25rem !important;
+  }
+
+  .toast {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    left: 0.5rem;
+  }
+}
+
+/* Landscape mode on mobile */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .navbar {
+    padding: 0.5rem 0;
+  }
+}
+
+/* High resolution displays */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark mode (system preference respected) */
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .form-control-dark:focus {
+    outline: 2px solid var(--primary);
+  }
+
+  .navbar-nav .nav-link.active {
+    border-bottom: 2px solid var(--primary);
   }
 }
