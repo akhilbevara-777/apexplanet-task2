@@ -53,12 +53,67 @@ function showAlert(message, type = 'success') {
   }, 5500);
 }
 
+function isPhoneValid(value) {
+  return /^\+?[0-9\s\-]{7,15}$/.test(value.trim());
+}
+
+function validateField(field) {
+  const value = field.value.trim();
+  const feedback = field.nextElementSibling;
+
+  field.setCustomValidity('');
+
+  if (!value) {
+    field.setCustomValidity('required');
+    if (feedback) feedback.textContent = 'This field cannot be empty.';
+    return false;
+  }
+
+  if (field.type === 'email') {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(value)) {
+      field.setCustomValidity('invalid');
+      if (feedback) feedback.textContent = 'Please enter a valid email address.';
+      return false;
+    }
+  }
+
+  if (field.type === 'tel') {
+    if (!isPhoneValid(value)) {
+      field.setCustomValidity('invalid');
+      if (feedback) feedback.textContent = 'Enter a valid phone number (7-15 digits).';
+      return false;
+    }
+  }
+
+  const maxLength = field.getAttribute('maxlength');
+  if (maxLength && value.length > Number(maxLength)) {
+    field.setCustomValidity('invalid');
+    if (feedback) feedback.textContent = `Maximum ${maxLength} characters allowed.`;
+    return false;
+  }
+
+  return true;
+}
+
 function handleFormSubmit(event) {
   event.preventDefault();
   if (!contactForm) return;
 
-  if (!contactForm.checkValidity()) {
-    contactForm.classList.add('was-validated');
+  const fields = Array.from(contactForm.querySelectorAll('input, textarea'));
+  let formValid = true;
+
+  fields.forEach((field) => {
+    const valid = validateField(field);
+    if (!valid) {
+      formValid = false;
+    }
+  });
+
+  contactForm.classList.add('was-validated');
+
+  if (!formValid) {
+    showAlert('Please correct the highlighted fields before sending.', 'danger');
     return;
   }
 
@@ -77,4 +132,19 @@ window.addEventListener('load', () => {
 
 if (contactForm) {
   contactForm.addEventListener('submit', handleFormSubmit);
+  const fields = Array.from(contactForm.querySelectorAll('input, textarea'));
+  fields.forEach((field) => {
+    field.addEventListener('input', () => {
+      validateField(field);
+      if (contactForm.classList.contains('was-validated')) {
+        field.classList.remove('is-invalid');
+        field.classList.remove('is-valid');
+        if (field.checkValidity()) {
+          field.classList.add('is-valid');
+        } else {
+          field.classList.add('is-invalid');
+        }
+      }
+    });
+  });
 }
