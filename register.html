@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | ApexPlanet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-8n8mljMxnsdNRcJ/NeDk9iOM0NJL8x9wV8rcc+K9P9r+koaTML5+pUoRhW11BxqC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1PcV1CUO/pW0VDYDbL1S4jJ5naC4DXcWuzSQm2nXrX5lWJ+WcRNoA8Mh9UYV1HZ0c8vGjFjB2pzYOkTBGX60A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+  <main class="register-page min-vh-100 d-flex align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-5 col-md-7">
+          <div class="register-card p-4 p-md-5 rounded-4 shadow-xl">
+            <div class="text-center mb-4">
+              <div class="avatar shadow-sm mb-3">
+                <i class="fa-solid fa-user-plus fa-2x"></i>
+              </div>
+              <h1 class="h4 mb-2">Create your account</h1>
+              <p class="text-muted mb-0">Join ApexPlanet with a secure registration form.</p>
+            </div>
+
+            <form id="registerForm" novalidate>
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control form-control-dark" id="fullName" placeholder="Full Name" maxlength="60" required />
+                <label for="fullName"><i class="fa-solid fa-user me-2"></i>Full Name</label>
+                <div class="invalid-feedback">Enter your full name (max 60 characters).</div>
+              </div>
+
+              <div class="mb-3 form-floating">
+                <input type="email" class="form-control form-control-dark" id="registerEmail" placeholder="Email" maxlength="80" required />
+                <label for="registerEmail"><i class="fa-solid fa-envelope me-2"></i>Email</label>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+
+              <div class="mb-3 form-floating">
+                <input type="tel" class="form-control form-control-dark" id="registerPhone" placeholder="Phone Number" maxlength="15" required />
+                <label for="registerPhone"><i class="fa-solid fa-phone me-2"></i>Phone Number</label>
+                <div class="invalid-feedback">Enter a valid phone number (7-15 digits).</div>
+              </div>
+
+              <div class="mb-3 form-floating position-relative">
+                <input type="password" class="form-control form-control-dark" id="registerPassword" placeholder="Password" minlength="8" maxlength="32" required />
+                <label for="registerPassword"><i class="fa-solid fa-lock me-2"></i>Password</label>
+                <button type="button" class="btn btn-sm btn-link text-decoration-none password-toggle" aria-label="Toggle password visibility">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <div class="invalid-feedback">Password must be 8-32 characters.</div>
+              </div>
+
+              <div class="mb-3 form-floating position-relative">
+                <input type="password" class="form-control form-control-dark" id="confirmPassword" placeholder="Confirm Password" minlength="8" maxlength="32" required />
+                <label for="confirmPassword"><i class="fa-solid fa-lock me-2"></i>Confirm Password</label>
+                <button type="button" class="btn btn-sm btn-link text-decoration-none password-toggle" aria-label="Toggle confirm password visibility">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <div class="invalid-feedback">Passwords must match.</div>
+              </div>
+
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="text-muted">Password strength</span>
+                  <span id="strengthLabel" class="text-muted small">Enter password</span>
+                </div>
+                <div class="progress strength-bar" style="height: 10px;">
+                  <div id="passwordStrengthBar" class="progress-bar rounded-pill" role="progressbar" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary btn-lg fw-semibold">Register</button>
+              </div>
+
+              <div id="registerAlert" class="alert d-none" role="alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoK18m1NQ5+31N6c3q3up0K8Y5QnN3G5p+E5oz9BS+ZgTnh" crossorigin="anonymous"></script>
+  <script src="register.js"></script>
+</body>
+</html>

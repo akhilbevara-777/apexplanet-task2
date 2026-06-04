@@ -1,0 +1,161 @@
+:root {
+  --bg: #090b10;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --text: #e9f1ff;
+  --muted: #a5b4cc;
+  --accent: #2f7cff;
+  --success: #4ecb94;
+  --warning: #ffb349;
+  --danger: #ff6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(47, 124, 255, 0.18), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(30, 74, 190, 0.16), transparent 20%),
+    linear-gradient(180deg, #07090d 0%, #090b10 100%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.register-page {
+  position: relative;
+}
+
+.register-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(47, 124, 255, 0.12), transparent 22%),
+    radial-gradient(circle at 80% 80%, rgba(96, 186, 255, 0.08), transparent 20%);
+  pointer-events: none;
+}
+
+.register-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(15, 20, 31, 0.98), rgba(8, 10, 16, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+  animation: fadeInUp 0.9s ease both;
+}
+
+.register-card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(47, 124, 255, 0.08), transparent 24%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.register-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.avatar i {
+  color: var(--accent);
+}
+
+.form-control-dark {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.form-control-dark:focus {
+  outline: none;
+  border-color: rgba(47, 124, 255, 0.75);
+  box-shadow: 0 0 0 0.25rem rgba(47, 124, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.85rem;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+.password-toggle:hover {
+  color: var(--accent);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #4f96ff);
+  border: 0;
+  box-shadow: 0 18px 40px rgba(47, 124, 255, 0.18);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn-link {
+  color: var(--accent);
+}
+
+.btn-link:hover {
+  text-decoration: none;
+  color: #7da7ff;
+}
+
+.text-muted {
+  color: var(--muted) !important;
+}
+
+.invalid-feedback {
+  font-size: 0.95rem;
+}
+
+.strength-bar .progress-bar {
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+#registerAlert {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .register-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+  }
+}
